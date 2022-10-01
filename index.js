@@ -70,5 +70,32 @@ Challenge:
 4. Render the string to the 'emotion-radios' div.
 */ 
 
-const emotionRadio = document.getElementById('emotion-radios')
-emotionRadio.innerHTML = renderEmotionsRadios(catsData)
+const emotionRadios = document.getElementById('emotion-radios')
+emotionRadios.innerHTML = renderEmotionsRadios(catsData)
+
+/*
+Challenge:
+1. Add an eventListener to emotionRadios that will listen 
+   out for any *change* in our radio buttons. When it detects
+   a change, it should log out the id of the element that 
+   was selected.
+⚠️️ ️T️h️is won't work if the eventListener is listening out for a 
+   'click'. Google what event to listen for - I've already 
+   given you a clue!
+*/
+
+emotionRadios.addEventListener('change', highlightCheckedOption)
+
+function highlightCheckedOption(e){
+  const radiosElements = document.getElementsByClassName('radio')
+  for (let radio of radiosElements) {
+    radio.classList.remove('highlight')
+  }
+  document.getElementById(e.target.id).parentElement.classList.add('highlight')
+/*
+Challenge:
+1. Change the code in line 8 so we add the 
+ 'highlight' class to the parent of the 
+ selected input radio.
+*/
+}
