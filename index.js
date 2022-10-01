@@ -19,7 +19,9 @@ function getEmotionsArray(cats) {
   const result = []
   for (const cat of cats) {
     for (const mood of cat.emotionTags) {
-      result.push(mood)
+      if (!result.includes(mood)) {
+        result.push(mood)
+      }
     }
   }
   return result
@@ -44,9 +46,9 @@ Challenge:
 function renderEmotionsRadios(cats) {
   let render = ''
   const emotions = getEmotionsArray(cats)
-  let moods = [...new Set(emotions)]
-  moods.map(item => {
-    return render += `<div>
+  // let moods = [...new Set(emotions)]
+  emotions.map(item => {
+    return render += `<div class="radio">
     <label for="${item}">${item}</label>
     <input type="radio" id="${item}" name="moods" value="${item}">
     </div>`
