@@ -168,16 +168,40 @@ const catsData = [
       alt: "A cat looking sad",
   },
 ]
+  
+//   function getEmotionsArray(cats){
+//     const emotionsArray = []
+//     for (let i = 0; i < cats.length; i++){
+//         for (let j=0; j < cats[i].emotionTags.length; j++){
+//                 emotionsArray.push(cats[i].emotionTags[j])
+//         }
+//     }
+//   console.log(emotionsArray)
+//   }
+ 
+ /*
+Challenge:
+1. Set up a "for of" in getEmotionsArray to iterate 
+   over the data.
+2. For now, just log out each cat object individually.
+3. Set up a const and initialise it with 
+   an empty array.
+4. Instead of logging out each emotion, 
+   push each one to the new array.
+5. At the end of the function, log out the 
+   const holding the new array.
+ */
 
-function getEmotionsArray(cats){
-  const emotionsArray = []
-  for (let i = 0; i < cats.length; i++){
-      for (let j=0; j < cats[i].emotionTags.length; j++){
-              emotionsArray.push(cats[i].emotionTags[j])
-      }
+// use the "for of" instead of for loop to iterate on all the moods
+
+function getEmotionsArray(cats) {
+  const result = []
+  for (const cat of cats) {
+    for (const mood of cat.emotionTags) {
+      result.push(mood)
+    }
   }
-console.log(emotionsArray)
+  return result
 }
 
-// getEmotionsArray(catsData)
-
+console.log(getEmotionsArray(catsData))
