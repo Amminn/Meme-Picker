@@ -61,12 +61,6 @@ header{
   border-radius: 5px;
 }
 
-/* .emotion-radios div{
-  display: flex;
-  padding: 0.7rem;
-  border-bottom: 1px solid lightgray;
-} */
-
 .radio{
   display: flex;
   align-items: center;
