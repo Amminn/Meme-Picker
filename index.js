@@ -54,7 +54,7 @@ Challenge:
 function getMatchingCatsArray() {
   const gifsOnlyOption = document.getElementById('gifs-only-option')
   const isGif = gifsOnlyOption.checked
-  console.log('isGif: ' + isGif)
+
   /*
     Challenge:    
     1. Add code to getMatchingCatsArray so 
@@ -121,6 +121,8 @@ function getSingleCatObject(){
 
 const memeModalInner = document.getElementById('meme-modal-inner')
 const memeModal = document.getElementById('meme-modal')
+const closeModalBtn = document.getElementById('meme-modal-close-btn')
+
 function renderCat(){
 /*
   Challenge:
@@ -139,7 +141,6 @@ function renderCat(){
       >`
 */ 
   const catObject = getSingleCatObject()
-  console.log(catObject)
   memeModalInner.innerHTML = `
   <img 
     class="cat-img" 
@@ -149,6 +150,15 @@ function renderCat(){
 
   memeModal.style.display = 'flex'
 }
+
+/*
+  Challenge:
+  1. Add functionality the modal close btn
+*/
+
+closeModalBtn.addEventListener('click', () => {
+  memeModal.style.display = 'none'
+})
 
 /*
 Challenge:
