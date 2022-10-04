@@ -107,7 +107,7 @@ function getSingleCatObject(){
   */  
 
   if (catsArray.length === 1) {
-    return console.log(catsArray[0])   
+    return catsArray[0]
   } else {
     /*
       Challenge:
@@ -115,13 +115,39 @@ function getSingleCatObject(){
         select an object at random and log it out.
     */ 
     let randomNumber = Math.floor(Math.random() * catsArray.length - 1) + 1
-    return console.log(catsArray[randomNumber])
+    return catsArray[randomNumber]
   }
-  // return catsArray
 }
 
+const memeModalInner = document.getElementById('meme-modal-inner')
+const memeModal = document.getElementById('meme-modal')
 function renderCat(){
-  getSingleCatObject()
+/*
+  Challenge:
+    1. Take the object that is returned by 
+      getSingleCatObject and save it to a const 
+      called "catObject".
+    2. Set memeModalInner’s innerHTML to the HTML 
+      string below, remembering to insert the relevant 
+      data from catObject to replace the UPPERCASE text.
+    3. Set memeModal’s display property to "flex". 
+
+      `<img 
+      class="cat-img" 
+      src="./images/CAT IMAGE"
+      alt="CAT ALT TEXT"
+      >`
+*/ 
+  const catObject = getSingleCatObject()
+  console.log(catObject)
+  memeModalInner.innerHTML = `
+  <img 
+    class="cat-img" 
+    src="./images/${catObject.image}"
+    alt="CAT ALT TEXT"
+  >`
+
+  memeModal.style.display = 'flex'
 }
 
 /*
