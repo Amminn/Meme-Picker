@@ -83,7 +83,7 @@ function getMatchingCatsArray() {
               should return an array of all matches as it does now.
           */ 
         
-        return isGif ? cat.emotionTags.includes(selectedEmotion) && cat.isGif === true : cat.emotionTags.includes(selectedEmotion)
+        return isGif ? cat.emotionTags.includes(selectedEmotion) && cat.isGif : cat.emotionTags.includes(selectedEmotion)
       })
       
       console.log(moodsMatchingTheCats)
