@@ -38,7 +38,7 @@ Challenge:
 */
 
 const submitBtn = document.getElementById('get-image-btn')
-submitBtn.addEventListener('click', getMatchingCatsArray)
+submitBtn.addEventListener('click', renderCat)
 
 /*
 Challenge:
@@ -56,14 +56,13 @@ function getMatchingCatsArray() {
   const isGif = gifsOnlyOption.checked
   console.log('isGif: ' + isGif)
   /*
-  Challenge:
+    Challenge:    
     1. Add code to getMatchingCatsArray so 
       that the two existing lines of code 
       only run if an emotion has been selected.
   */
     if(document.querySelector('input[type="radio"]:checked')){
       const selectedEmotion = document.querySelector('input[type="radio"]:checked').value
-      console.log(selectedEmotion)
 
       /*
         Challenge:
@@ -85,10 +84,45 @@ function getMatchingCatsArray() {
         
         return isGif ? cat.emotionTags.includes(selectedEmotion) && cat.isGif : cat.emotionTags.includes(selectedEmotion)
       })
-      
-      console.log(moodsMatchingTheCats)
+      return moodsMatchingTheCats
     }  
   }
+
+function getSingleCatObject(){
+  /*
+    Challenge:
+      1. Inside this function, call getMatchingCatsArray 
+      and save whatever it returns to a const called 
+      “catsArray”. 
+  */  
+  const catsArray = getMatchingCatsArray()
+
+  /*
+    Challenge:
+      1. Set up an if to check if there is only one
+      cat object in the array. If there is, log
+      out that cat object (but not the whole array!)
+      {}
+      Test: "happy", animated GIFS only checked.
+  */  
+
+  if (catsArray.length === 1) {
+    return console.log(catsArray[0])   
+  } else {
+    /*
+      Challenge:
+        1. If catsArray has more than one object, 
+        select an object at random and log it out.
+    */ 
+    let randomNumber = Math.floor(Math.random() * catsArray.length - 1) + 1
+    return console.log(catsArray[randomNumber])
+  }
+  // return catsArray
+}
+
+function renderCat(){
+  getSingleCatObject()
+}
 
 /*
 Challenge:
