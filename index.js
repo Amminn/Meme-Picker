@@ -27,7 +27,31 @@ function getEmotionsArray(cats) {
   return result
 }
 
-// -------------------------------------------------
+/*
+Challenge:
+1. Set up an eventlistener which calls a new
+   function called "getMatchingCatsArray" when
+   the "Get Image" button is clicked.
+2. getMatchingCatsArray should save the value
+   of the checked radio input to a const and 
+   log out that const.
+*/
+
+const submitBtn = document.getElementById('get-image-btn')
+
+submitBtn.addEventListener('click', getMatchingCatsArray)
+
+function getMatchingCatsArray() {
+  /*
+  Challenge:
+  1. Add code to getMatchingCatsArray so 
+    that the two existing lines of code 
+    only run if an emotion has been selected.
+  */
+    if(document.querySelector('input[type="radio"]:checked')){
+      const selectedEmotion = document.querySelector('input[type="radio"]:checked').value
+      console.log(selectedEmotion)
+  }}
 
 /*
 Challenge:
