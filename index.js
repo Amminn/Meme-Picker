@@ -38,20 +38,57 @@ Challenge:
 */
 
 const submitBtn = document.getElementById('get-image-btn')
-
 submitBtn.addEventListener('click', getMatchingCatsArray)
 
+/*
+Challenge:
+  1. Take control of the gifs only option checkbox.
+  2. Set up a const in getMatchingCatsArray to store 
+    a boolean which will be set to true if the 
+    "gifs only" option is checked and false if it's
+    not. (Think what a good name for this const would 
+    be.)
+  3. Log it out to check it's working.
+*/
+
 function getMatchingCatsArray() {
+  const gifsOnlyOption = document.getElementById('gifs-only-option')
+  const isGif = gifsOnlyOption.checked
+  console.log('isGif: ' + isGif)
   /*
   Challenge:
-  1. Add code to getMatchingCatsArray so 
-    that the two existing lines of code 
-    only run if an emotion has been selected.
+    1. Add code to getMatchingCatsArray so 
+      that the two existing lines of code 
+      only run if an emotion has been selected.
   */
     if(document.querySelector('input[type="radio"]:checked')){
       const selectedEmotion = document.querySelector('input[type="radio"]:checked').value
       console.log(selectedEmotion)
-  }}
+
+      /*
+        Challenge:
+        1. Use the .filter() and .includes() methods to get 
+          an array of cats which have the selected emotion
+          in their emotionTags array. 
+        2. Store this array in a const and log it out to check
+          it's working. Think: what would be a good name for the
+          const?
+      */  
+      const moodsMatchingTheCats = catsData.filter(cat => {
+          /*
+          Challenge:
+            1. Change the .filter() method's function so it returns an 
+              array that only has GIFs if the 'GIFs only' option is 
+              checked. If the 'GIFs only' option is not checked, it
+              should return an array of all matches as it does now.
+          */ 
+        
+        return isGif ? cat.emotionTags.includes(selectedEmotion) && cat.isGif === true : cat.emotionTags.includes(selectedEmotion)
+      })
+      
+      console.log(moodsMatchingTheCats)
+    }  
+  }
 
 /*
 Challenge:
